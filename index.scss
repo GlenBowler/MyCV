@@ -1,0 +1,246 @@
+//Setting the box up for all my elements
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+//Custom properties
+:root{
+    //Creating var so that is easier to access them on a later phase
+    --ff-primary: 'Courier New', Courier, monospace;//Font of your text
+
+    --fw-reg:300;//Font weight
+    --fw-bold:900;//Font weight
+
+    --clr-light:white;//background color
+    --clr-dark:black;//background color
+    --clr-accent:darkslategrey;//background color
+    --clr-lightdark:grey;//background color
+
+    --fs-h1:2rem;//font size
+    --fs-h2:1.25rem;//font size
+    --fs-h3:.25rem;//font size
+    --fs-body:1rem;//font size
+    --bs:0.25em 0.25em 0.575em rgba(0,0,0,25),;//box shadow
+}
+@media (min-width:800px){//Change relatively against the size of screen/webpage size
+    :root{
+        --fs-h1:3.5rem;//font size
+        --fs-h2:2.75re,;//font size
+        --fs-h3:1.5rem;//font size
+        --fs-body:1.125rem;//font size
+    }
+}
+
+//General styling
+body{//Styling the body of my page
+    background:var(--clr-light);
+    color:var(--clr-dark);
+    margin:0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body) ;
+    line-height:1.6;
+}
+section{//Making a space at the sides so that we dont touch that side of screen
+    padding:5em 2em;
+}
+
+img{//Styling your img
+    display:block;
+    max-width: 100%;
+
+strong{
+    font-weight: var(--fw-bold);
+}
+
+
+
+}//Styling my h properties
+
+h1,h2,h3{
+    line-height: 1.1;
+    margin:0;
+}
+h1{
+    font-size: var(--fs-h1);
+    
+}
+h2{
+    font-size: var(--fs-h2);
+}
+h3{
+    font-size: var(--fs-h3);
+}
+
+
+//Styling your home/intro page
+
+.intro{
+    position:relative;
+    margin:0;
+    font-size: var(--fs-h3);
+    background: var(--clr-light);
+    font-family: var(--ff-primary);
+    
+
+    
+}
+.intro strong{//Display my name in own line
+    display: block;
+}
+.home_section_p{//Sttling my home section paragraph
+    background: var(--clr-accent);
+    color:white;
+    margin-bottom: 1em;
+    font-weight: var(--fw-reg);
+
+}
+//Giving my intro/home img a shadow
+.intro_img{
+    box-shadow: var(--bs);
+}
+
+//Styling my Bio section
+.bio{
+    position:relative;
+    margin:0;
+    font-size: var(--fs-h3);
+    background: var(--clr-lightdark);
+    font-family: var(--ff-primary);
+}
+//Styling my skills
+.skills{
+    position:relative;
+    margin:0;
+    font-size: var(--fs-h3);
+    background-image:url(skills.jpg);
+    background-size:100% 100%;
+    background-repeat: no-repeat;
+    font-family: var(--ff-primary);
+}
+//Education styling
+.Edaudcation{
+    position:relative;
+    margin:0;
+    font-size:20px;;
+    background-image:url(knowledge.png);
+    background-size:100% 100%;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    font-family: var(--ff-primary);
+}
+//Work Exp styling
+.work_exp{
+    position:relative;
+    margin:0;
+    font-size:20px;;
+    background-image:url(work.jpg);
+    background-size:100% 100%;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    font-family: var(--ff-primary);
+}
+//Footer Contact
+.Contact{
+    position: relative;
+    margin:0;
+    font-size: var(--fs-h3);
+    background: var(--clr-lightdark);
+    font-family: var(--ff-primary);
+    padding:2.5em 0;
+    text-align: center;
+    
+}
+
+//Once he is full screen this must be how output look
+@media (min-width:600px){
+    //Intro styling once full screen
+    .intro{
+        display:grid;
+        width:min-content;
+        margin:0 auto;
+        grid-template-areas: 
+        "img title"
+        "img subtitle";
+        grid-template-columns: min-content max-content;
+        padding:4em 10em 4em 10em;
+      
+    }
+    .intro_img{//styling the intro img 
+        grid-area:img;
+        min-width:250px;
+        position: relative;
+        z-index: 2;
+    }
+    .home_section_p{//Styling my home section paragp so that he end up  where i want it
+        align-self: start;
+        grid-column:-1/1;//Getting to go all the way across my screen under my pic
+        grid-row:2;
+        text-align: right;
+        position: relative;
+        left:-2em;
+        width:calc(100%+1em);
+    }
+    //BIO
+    .bio{
+        display:inline-block;
+        width:100%;
+        margin:0 auto;
+        grid-template-columns: min-content max-content;
+        padding:4em 10em 4em 10em;
+    }
+    .bio_section_h{//Styling my bio section text
+        text-align: center;
+    }
+    //Skills
+    .skills{//styling the skills section of my page
+        display:inline-block;
+        width:100%;
+        margin:0 auto;
+        grid-template-columns: min-content max-content;
+        padding:4em 10em 4em 10em;
+    }
+    .skills_section_h{//Styling my text section of my skills
+        text-align: center;
+        color:var(--clr-light);
+        padding-bottom:2em;
+    }
+    .skills_compen li{//Styling my li el of my skills
+        text-align: right;
+        color:var(--clr-light);
+        list-style:none;
+    } 
+    //Education
+    .education_section_h{//Styling my education text
+        text-align: center;
+        color:var(--clr-dark);
+        padding-bottom:2em;
+    }
+  
+    
+    //Work Exp
+   
+    .work_exp_section_h{//Styling my text part of my work exp section
+        color:var(--clr-dark);
+        text-align: center;
+    }
+    .work_exp_p{
+        color:var(--clr-dark);
+    }
+    .workerExp li{//Styling the li el of my page
+        list-style:none;
+        color:var(--clr-dark);
+    }
+    //Contact me
+    .socail_list{//Styling the list el of my contact section
+        list-style:none;        
+    }
+    .socail_list li{
+        display: inline-flex;
+        padding-left:1em;
+    }
+    .Contact a{
+        color:inherit;
+    }
+    .cellphone{//Since my cellphone number is on a diff line styling it separtly
+        list-style:none; 
+    }
+}
